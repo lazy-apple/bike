@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lazy.bike.mapper.BikeMapper">
+
+    <resultMap type="com.lazy.bike.pojo.Bike" id="bike_result_map">
+        <id property="id" column="id"/>
+        <result property="status" column="status"/>
+        <result property="latitude" column="latitude"/>
+        <result property="longitude" column="longitude"/>
+        <result property="qrCode" column="qr_code"/>
+
+    </resultMap>
+
+
+    <insert id="save" parameterType="com.lazy.bike.pojo.Bike" >
+		INSERT INTO t_bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
+	</insert>
+
+
+</mapper>
