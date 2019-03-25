@@ -16,7 +16,7 @@
 
 
     <insert id="save" parameterType="com.lazy.bike.pojo.Bike" >
-		INSERT INTO t_bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
+		INSERT INTO bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
 	</insert>
 
 
