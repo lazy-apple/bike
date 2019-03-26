@@ -10,7 +10,9 @@ Page({
     latitude: 0,
     longitude: 0,
     //控件的变量，数组类型
-    controls: []
+    controls: [],
+    //显示的单车
+    markers: []
   },
 
   /**
@@ -26,10 +28,28 @@ Page({
         var lat = res.latitude;
         var log = res.longitude;
         //console.log("纬度" + lat + "经度" + log)
-        that.setData({
-          latitude: lat,
-          longitude: log
-        });
+        wx.request({
+          url: "http://localhost:9999/bikes",
+          method: 'GET',
+          success: function (res) {
+            const bikes = res.data.map((item) => {
+              return {
+                id: item.id,
+                iconPath: "/image/bike.png",
+                width: 35,
+                height: 40,
+                latitude: item.latitude,
+                longitude: item.longitude
+              };
+            });
+            // 修改data里面的markers
+            that.setData({
+              latitude: lat,
+              longitude: log,
+              markers: bikes
+            });
+          }
+        })
       }
     });
 
@@ -94,7 +114,16 @@ Page({
             },
             //是否可点击
             clickable: true
-          }]
+            }, { //手动添加一辆单车的按钮
+              id: 5,
+              iconPath: "/image/bike.png",
+              position: {
+                width: 35,
+                height: 40,
+              },
+              //是否可点击
+              clickable: true
+            }]
         })
       },
     })
@@ -118,7 +147,7 @@ Page({
           var code = r.result;
           //向后台发送请求
           wx.request({
-            method: 'POST',
+            // method: 'POST',
             url: 'http://localhost:9999/bike', //仅为示例，并非真实的接口地址
             data: {
               qrCode: code,
@@ -130,6 +159,45 @@ Page({
             },
             success: function (res) {
               console.log(res.data)
+            }
+          })
+        }
+      })
+    } if (e.controlId == 5) {
+      //添加车辆的按钮
+      that.mapCtx.getCenterLocation({
+        success: function (res) {
+          var lat = res.latitude;
+          var log = res.longitude;
+          wx.request({
+            url: "http://localhost:9999/bike",
+            method: 'POST',
+            data: {
+              latitude: lat,
+              longitude: log
+            },
+            success: function () {
+              //向后台发送请求，将单车查找出来
+              wx.request({
+                url: "http://localhost:9999/bikes",
+                method: 'GET',
+                success: function (res) {
+                  const bikes = res.data.map((item) => {
+                    return {
+                      id: item.id,
+                      iconPath: "/image/bike.png",
+                      width: 35,
+                      height: 40,
+                      latitude: item.latitude,
+                      longitude: item.longitude
+                    };
+                  });
+                  // 修改data里面的markers
+                  that.setData({
+                    markers: bikes
+                  });
+                }
+              })
             }
           })
         }
