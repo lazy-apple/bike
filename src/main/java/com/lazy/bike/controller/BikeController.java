@@ -51,4 +51,9 @@ public class BikeController {
         List<Bike> bikes = bikeServce.findAll();
         return bikes;
     }
+    //先跳转到视图页面
+    @GetMapping("/bike_list")
+    public String toList() {
+        return "bike/list";
+    }
 }
