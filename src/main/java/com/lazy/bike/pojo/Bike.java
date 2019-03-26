@@ -5,7 +5,7 @@ package com.lazy.bike.pojo;
  * @create 2019-03-24 21:28
  */
 public class Bike {
-    private Long id;
+    private String id;
 
     private int status;
 
@@ -15,11 +15,11 @@ public class Bike {
 
     private Double longitude;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

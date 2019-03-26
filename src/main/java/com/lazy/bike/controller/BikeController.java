@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @author LaZY(李志一)
  * @create 2019-03-24 21:25
@@ -33,5 +35,20 @@ public class BikeController {
         //调用Service保存map
         bikeServce.save(bike);
         return "success";
+    }
+
+    @PostMapping("/bike")
+    @ResponseBody  //响应Ajax请求，会将响应的对象转成json
+    public String save(@RequestBody String bike) {
+        //调用Service保存map
+        bikeServce.save(bike);
+        return "success";
+    }
+
+    @GetMapping("/bikes")
+    @ResponseBody  //响应Ajax请求，会将响应的对象转成json
+    public List<Bike> findAll() {
+        List<Bike> bikes = bikeServce.findAll();
+        return bikes;
     }
 }
