@@ -12,6 +12,8 @@
     <artifactId>bike</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>bike</name>
+    <packaging>war</packaging>
+    <!--因为需要jsp依赖-->
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -37,12 +39,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <!--<scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
