@@ -1,0 +1,24 @@
+<!--pages/pledge/index.wxml-->
+<view class="state">
+  <view class="flag"> 手机绑定</view>
+  <view class="flag"> 押金充值</view>
+  <view class="flag"> 实名认证</view>
+  <view class="flag"> 开始用车</view>
+</view>
+
+<view class="pledgecont">
+  <view class="classname">
+    <image src="/image/shield.png"></image>
+    <text>押金（可退）</text>
+    <text class="pull-right">￥299</text>
+  </view>
+  <view class="small">押金随心退，安全速到账</view>
+</view>
+
+<view class="message">
+  <text>全国百万摩拜任你骑</text>
+</view>
+
+<view class="czbtn">
+  <button type="primary" bindtap="deposit">去充值</button>
+</view>

@@ -1,25 +1,34 @@
 package com.lazy.bike.pojo;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author LaZY(李志一)
  * @create 2019-03-24 21:28
  */
+@Document(collection = "bikes")
 public class Bike {
-    private String id;
+    @Id
+    private long id;
 
     private int status;
 
     private String qrCode;
 
-    private Double latitude;
+    @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
+    private double[] location;
+//    private Double latitude;
+//
+//    private Double longitude;
 
-    private Double longitude;
-
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -39,31 +48,29 @@ public class Bike {
         this.qrCode = qrCode;
     }
 
-    public Double getLatitude() {
-        return latitude;
+//    public Double getLatitude() {
+//        return latitude;
+//    }
+//
+//    public void setLatitude(Double latitude) {
+//        this.latitude = latitude;
+//    }
+//
+//
+//
+//    public Double getLongitude() {
+//        return longitude;
+//    }
+//
+//    public void setLongitude(Double longitude) {
+//        this.longitude = longitude;
+//    }
+
+    public double[] getLocation() {
+        return location;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-    @Override
-    public String toString() {
-        return "Bike{" +
-                "id=" + id +
-                ", status=" + status +
-                ", qrCode='" + qrCode + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
+    public void setLocation(double[] location) {
+        this.location = location;
     }
 }

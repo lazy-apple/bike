@@ -1,0 +1,45 @@
+<!--pages/identify/identify.wxml-->
+<!--pages/register/register.wxml
+  https://github.com/Tencent/weui-wxss/
+-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+        <view class="state">
+          <view class="flag"> 手机绑定</view>
+          <view class="flag"> 押金充值</view>
+          <view class="flag"> 实名认证</view>
+          <view class="flag"> 开始用车</view>
+        </view>
+
+        <view class="pledgecont">
+        </view>
+
+        <form bindsubmit="formSubmit">
+          <view class="weui-cells">  
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="name" placeholder="请输入真实姓名" />
+                </view>
+            </view>
+          </view>
+
+          <view class="weui-cells">  
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">身份证号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="idNum" placeholder="请输入身份证号" />
+                </view>
+            </view>
+          </view>
+
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" formType="submit">确定</button>
+          </view>
+      </form>
+    </view>
+</view>

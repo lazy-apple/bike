@@ -1,0 +1,50 @@
+<!--pages/register/register.wxml
+  https://github.com/Tencent/weui-wxss/
+-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+        <view class="state">
+          <view class="flag"> 手机绑定</view>
+          <view class="flag"> 押金充值</view>
+          <view class="flag"> 实名认证</view>
+          <view class="flag"> 开始用车</view>
+        </view>
+
+        <view class="pledgecont">
+        </view>
+
+        <form bindsubmit="formSubmit">
+          <view class="weui-cells">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd" style="width: 23%">
+                    <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+                        <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+                    </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input class="weui-input" name="phoneNum" placeholder="请输入手机号码" bindinput="inputPhoneNum"/>
+                </view>
+                <view class="weui-cell__ft" style="width: 35%">
+                    <view class="weui-vcode-btn" bindtap="genVerifyCode">获取验证码</view>
+                </view>
+            </view>
+          </view>
+          
+
+          <view class="weui-cells">  
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="verifyCode" placeholder="请输入验证码" />
+                </view>
+            </view>
+          </view>
+
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" formType="submit">确定</button>
+          </view>
+      </form>
+    </view>
+</view>

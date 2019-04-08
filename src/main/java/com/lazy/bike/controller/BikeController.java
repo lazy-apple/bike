@@ -1,8 +1,10 @@
 package com.lazy.bike.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lazy.bike.pojo.Bike;
 import com.lazy.bike.servce.BikeServce;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.GeoResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,17 +40,29 @@ public class BikeController {
     }
 
     @PostMapping("/bike")
-    @ResponseBody  //响应Ajax请求，会将响应的对象转成json
-    public String save(@RequestBody String bike) {
-        //调用Service保存map
-        bikeServce.save(bike);
+    @ResponseBody
+    public String add(@RequestBody String bike) {
+        Bike b = JSONObject.parseObject(bike, Bike.class);
+        bikeServce.save(b);
         return "success";
     }
 
+//    @GetMapping("/bikes")
+//    @ResponseBody  //响应Ajax请求，会将响应的对象转成json
+//    public List<Bike> findAll() {
+//        List<Bike> bikes = bikeServce.findAll();
+//        return bikes;
+//    }
+    /**
+     * 查找当前坐标附近的单车
+     * @param longitude
+     * @param latitude
+     * @return
+     */
     @GetMapping("/bikes")
-    @ResponseBody  //响应Ajax请求，会将响应的对象转成json
-    public List<Bike> findAll() {
-        List<Bike> bikes = bikeServce.findAll();
+    @ResponseBody
+    public GeoResults<Bike> findNear(double longitude, double latitude) {
+        GeoResults<Bike> bikes = bikeServce.findNear(longitude, latitude);
         return bikes;
     }
     //先跳转到视图页面

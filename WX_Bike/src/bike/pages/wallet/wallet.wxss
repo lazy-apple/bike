@@ -1,0 +1,28 @@
+/* pages/wallet/wallet.wxss */
+.container {
+  padding: 20px 10px;
+}
+
+.pannel {
+  border-radius: 8px;
+  background: #fff;
+}
+
+.payment {
+  color: #fff;
+  text-align: center;
+  background: #f0504f;
+  padding: 40px;
+  border-radius: 8px 8px 0 0;
+}
+
+.other {
+  padding: 10px;
+}
+
+.other > view {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}

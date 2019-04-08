@@ -1,0 +1,19 @@
+<!--index.wxml
+  显示地图，其实是一般map标签
+  40.138000,116.264110
+  controls:地图中的控件按钮（图片）
+  markers:后台请求的数据
+  bindcontroltap:绑定事件
+  bindregionchange: 视野发生变化时触发
+-->
+<map id="map"
+ latitude="{{latitude}}"
+ longitude="{{longitude}}"
+ controls="{{controls}}" 
+ markers="{{markers}}" 
+ scale="17" 
+ show-location 
+ style="width: 100%; height:100%"
+ bindcontroltap="bindcontroltap"
+ bindregionchange="regionchange"
+></map>

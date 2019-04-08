@@ -1,6 +1,7 @@
 package com.lazy.bike.servce;
 
 import com.lazy.bike.pojo.Bike;
+import org.springframework.data.geo.GeoResults;
 
 import java.util.List;
 
@@ -9,10 +10,11 @@ import java.util.List;
  * @create 2019-03-24 21:35
  */
 public interface BikeServce {
-    public void save(Bike bike);
-
-    public void save(String bike);
 
     List<Bike> findAll();
+
+    void save(Bike bike);
+
+    GeoResults<Bike> findNear(double longitude, double latitude);
 }
 

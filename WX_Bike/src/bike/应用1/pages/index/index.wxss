@@ -1,0 +1,34 @@
+/**index.wxss**/
+
+.promotion-map {
+  width: 100%;
+  height: 100%;
+}
+
+/*<!--扫码弹出层-->*/
+modal {
+  text-align: left;
+}
+ /*<!--newm模块-->*/
+.promotion {
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 30rpx;
+  left: 30rpx;
+  box-shadow: 0 2px 5px #ccc;
+  line-height: 100rpx;
+}
+.promotion image {
+  float: left;
+  display: block;
+  height: 50rpx;
+  width: 50rpx;
+  margin: 25rpx 20rpx 0 30rpx;
+}
+.promotion .right{
+  float: right;
+  margin-right: 30rpx;
+  color: #ccc;
+}

@@ -1,19 +1,23 @@
-<!--index.wxml
-  显示地图，其实是一般map标签
-  40.138000,116.264110
-  controls:地图中的控件按钮（图片）
-  markers:后台请求的数据
-  bindcontroltap:绑定事件
-  bindregionchange: 视野发生变化时触发
+<!--
+longitude="{{longitude}}"
+ controls="{{controls}}" 
+ bindcontroltap="bindcontroltap"
 -->
+<view class='container'>
 <map id="map"
- latitude="{{latitude}}"
- longitude="{{longitude}}"
+ latitude="{{lat}}"
+ longitude="{{log}}"
  controls="{{controls}}" 
  markers="{{markers}}" 
  scale="17" 
  show-location 
  style="width: 100%; height:100%"
- bindcontroltap="bindcontroltap"
+ bindcontroltap="controltap"
  bindregionchange="regionchange"
 ></map>
+  <navigator style="display:{{isHidden}}" class="promotion" url="../../pages/promotion/promotion">
+    <image src="../../image/mywallet.png"></image>
+    <text>限时活动： 充值返利，充了就返</text>
+    <text class="right">></text>
+  </navigator>
+</view>

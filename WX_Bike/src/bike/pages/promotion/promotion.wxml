@@ -1,0 +1,15 @@
+<!--pages/promotion/promotion.wxml-->
+<view class="btnContainer">
+  <view class="btn {{currentTab == 0 ? 'on' : ''}}" data-current="0" data-money="1" bindtap="switchNav">活动A</view>
+  <view class="btn {{currentTab == 1 ? 'on' : ''}}" data-current="1" data-money="2" bindtap="switchNav">活动B</view>
+  <view class="btn {{currentTab == 2 ? 'on' : ''}}" data-current="2" data-money="3" bindtap="switchNav">活动C</view>
+  <view class="btn {{currentTab == 3 ? 'on' : ''}}" data-current="3" data-money="4" bindtap="switchNav">活动D</view>
+  <view class="btn {{currentTab == 4 ? 'on' : ''}}" data-current="4" data-money="5" bindtap="switchNav">活动E</view>
+  <view class="btn {{currentTab == 5 ? 'on' : ''}}" data-current="5" data-money="6" bindtap="switchNav">活动F</view>
+</view>
+
+<!-- 去充值按钮 -->
+<view class="recharge">
+  <button type="primary" bindtap="recharge">参与活动</button>
+</view>
+

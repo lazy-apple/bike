@@ -1,0 +1,29 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="container">
+  <view class="pannel">
+    
+    <view class="other">
+      <view>
+        <text>押金</text>
+        <view>
+          <button type="default" bindtap="deposit">交押金</button>
+        </view>
+      </view>
+
+      <view>
+        <text>余额:{{money}}元</text>
+        <view>
+          <button type="default" bindtap="recharge">充值</button>
+        </view>
+      </view>
+
+      <view>
+        <text>月卡</text>
+        <view>
+          <button type="default" bindtap="buy">购买</button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

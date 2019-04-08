@@ -1,0 +1,34 @@
+<!--index.wxml
+  40.138000,116.264110
+
+<map id="map"
+ longitude="{{log}}"
+ latitude="{{lat}}"
+ controls="{{controls}}" 
+ markers="{{markers}}" 
+ scale="17" 
+ show-location 
+ style="width: 100%; height:100%"
+ bindcontroltap="controltap"
+ bindregionchange="regionchange"
+></map>
+-->
+
+<view class='container'>
+  <map id="map"
+    latitude="{{lat}}"
+    longitude="{{log}}"
+    controls="{{controls}}" 
+    markers="{{markers}}" 
+    scale="17" 
+    show-location 
+    style="width: 100%; height:100%"
+    bindcontroltap="controltap"
+    bindregionchange="regionchange"
+    ></map>
+  <navigator style="display:{{isHidden}}" class="promotion" url="../../pages/promotion/promotion">
+    <image src="../../images/mywallet.png"></image>
+    <text>限时活动： 充值返利，充了就返</text>
+    <text class="right">></text>
+  </navigator>
+</view>

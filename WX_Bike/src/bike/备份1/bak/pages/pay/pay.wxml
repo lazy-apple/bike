@@ -1,0 +1,17 @@
+<!--pages/pay/pay.wxml-->
+
+<!-- 充值按钮 -->
+<view class="sumName">充值金额</view>
+<view class="btnContainer">
+  <view class="btn {{currentTab == 0 ? 'on' : ''}}" data-current="0" data-money="100" bindtap="switchNav">￥100</view>
+  <view class="btn {{currentTab == 1 ? 'on' : ''}}" data-current="1" data-money="50" bindtap="switchNav">￥50</view>
+  <view class="btn {{currentTab == 2 ? 'on' : ''}}" data-current="2" data-money="20" bindtap="switchNav">￥20</view>
+  <view class="btn {{currentTab == 3 ? 'on' : ''}}" data-current="3" data-money="10" bindtap="switchNav">￥10</view>
+  <view class="btn {{currentTab == 4 ? 'on' : ''}}" data-current="4" data-money="5" bindtap="switchNav">￥5</view>
+  <view class="btn {{currentTab == 5 ? 'on' : ''}}" data-current="5" data-money="1" bindtap="switchNav">￥1</view>
+</view>
+
+<!-- 去充值按钮 -->
+<view class="recharge">
+  <button type="primary" bindtap="recharge">去充值</button>
+</view>

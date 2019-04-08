@@ -1,0 +1,85 @@
+/* pages/pay/pay.wxss */
+
+/* 展示余额部分 */
+.balance {
+  background: #fff;
+  height: 80px;
+  padding: 10px;
+}
+
+/*图片*/
+.balance image {
+  max-height: 80px;
+  max-width: 80px;
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+}
+
+/*余额*/
+.sum {
+  position: absolute;
+  left: 120px;
+  top: 20px;
+  text-align: left;
+}
+
+.sum text {
+  font-size: 26px;
+}
+
+.sum view {
+  font-size: 14px;
+  color: gray;
+}
+
+/*充值余额样式*/
+.sumName {
+  color: gray;
+  padding: 20px;
+}
+
+.btnContainer {
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+/*按钮的样式*/
+.btn {
+  display: inline-block;
+  width: calc(50% - 10px);
+  border: 1px solid limegreen;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.on {
+  color: #fff;
+  background: limegreen;
+}
+
+
+/*去充值按钮样式*/
+.recharge {
+  padding: 20px;
+}
+
+/*押金样式*/
+.pledge {
+  text-align: center;
+  font-size: 16px;
+}
+
+.pledge text {
+  margin: 0 5px;
+}
+
+.pledge .pledgebtn {
+  color: cadetblue;
+}
+.pledge .gray {
+  color: gray;
+}

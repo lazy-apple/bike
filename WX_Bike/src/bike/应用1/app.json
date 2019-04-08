@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/register/register",
+    "pages/deposit/deposit",
+    "pages/identify/identify",
+    "pages/wallet/wallet",
+    "pages/pay/pay",
+    "pages/logs/logs",
+    "pages/promotion/promotion"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小牛单车",
+    "navigationBarTextStyle":"black"
+  },
+  "debug" :true
+}

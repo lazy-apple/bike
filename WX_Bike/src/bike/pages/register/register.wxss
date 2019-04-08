@@ -1,0 +1,128 @@
+/* pages/register/register.wxss */
+.state{
+  padding: 40px 0;
+  text-align: center;
+  background: #262a31;
+  display: flex;
+  justify-content: center;
+}
+
+/*4个标签的样式*/
+.state .flag{
+  font-size: 14px;
+  color: gray;
+  width: 25%;
+  padding-top: 30px;
+  position: relative;/*::after和::before选择器做准备*/
+}
+
+/*绿色小圆点的布局*/
+.state .flag::after{
+  content: '';
+  display: block;
+  height: 15px;
+  width: 15px;
+  background: limegreen;
+  border-radius: 50%;
+  position: absolute;
+  top: -7px;
+  right: 50%;
+  margin-right: -7.5px;
+}
+
+/*横线*/
+.state .flag::before{
+content: '';
+display: block;
+height: 1px;
+width: 100%;
+background: gray;
+position: absolute;
+top: 0;
+right: -50%;
+}
+
+/* 去掉第四个标签后面的横线*/
+.state .flag:last-child::before{
+  background: transparent;
+}
+
+/* 将还未执行到的标签设置成灰色*/
+.state .flag:nth-last-of-type(3)::after,
+.state .flag:nth-last-of-type(2)::after,
+.state .flag:last-child::after{
+  background: gray;
+}
+
+/*押金容器*/
+.pledgecont{
+  background: #fff;
+  padding: 20px;
+  font-size: 18px;
+  position: relative;
+}
+
+/*图片*/
+.pledgecont image{
+  height: 18px;
+  width: 14px;
+  margin-right: 6px;
+}
+
+/*三角的搭建*/
+.pledgecont::before{
+  content: '';
+  width: 0;
+  height: 0;
+  border-bottom: 14px solid #fff;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  top: -14px;
+  left: 12.5%;
+  margin-left: -8px;
+}
+
+/*小标题的样式*/
+.pledgecont .small{
+  font-size: 14px;
+  color: gray;
+  padding-left: 20px;
+  padding-top: 6px;
+}
+
+/*小广告*/
+.message text{
+  color: gray;
+  display: block;
+  padding: 20px;
+  position: relative;
+}
+
+/*小圆点*/
+.message text::before{
+  content: '';
+  display: block;
+  height: 5px;
+  width: 5px;
+  background: gray;
+  border-radius: 50%;
+  position: absolute;
+  top: 24px;
+  margin-left: -10px;
+}
+
+/*去充值按钮*/
+.czbtn{
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+
+.czbtn button{
+  margin: 10px;
+}
+
+.pull-right{
+  float: right;
+}
