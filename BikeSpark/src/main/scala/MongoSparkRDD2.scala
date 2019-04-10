@@ -15,7 +15,7 @@ object MongoSparkRDD {
     val conf = new SparkConf()
       .setAppName("MongoSparkRDD")
       .setMaster("local[*]")
-      .set("spark.mongodb.input.uri", "mongodb://192.168.255.202:27200,192.168.255.203:27200,192.168.255.204:27200/mobike.bikes?readPreference=secondaryPareferred")//读优先级（可以从从节点读）
+      .set("spark.mongodb.input.uri", "mongodb://192.168.255.202:27200,192.168.255.203:27200,192.168.255.204:27200/mobike.bikes?readPreference=secondaryPreferred")//读优先级（可以从从节点读）
 //      .set("spark.mongodb.output.uri", "mongodb://192.168.255.201:27017/lazy_bike.resluts")
     //创建sparkcontext(RDD,SparkCore)
     val sc = new SparkContext(conf)

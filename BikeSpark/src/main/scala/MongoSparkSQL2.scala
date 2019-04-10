@@ -12,7 +12,7 @@ object MongoSparkSQL {
     val session = SparkSession.builder()
       .master("local")
       .appName("MongoSparkConnectorIntro")
-      .config("spark.mongodb.input.uri", "mongodb://192.168.255.202:27200,192.168.255.203:27200,192.168.255.204:27200/mobike.bikes?readPreference=secondaryPareferred")
+      .config("spark.mongodb.input.uri", "mongodb://192.168.255.202:27200,192.168.255.203:27200,192.168.255.204:27200/mobike.bikes?readPreference=secondaryPreferred")
 //      .config("spark.mongodb.output.uri", "mongodb://lazy:root@192.168.255.201:27017/lazy_bike.resluts")
       .getOrCreate()
 
