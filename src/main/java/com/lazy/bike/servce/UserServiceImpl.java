@@ -88,14 +88,15 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public boolean verify(User user) {
-		boolean flag = false;
-		String phoneNum = user.getPhoneNum();
-		String verifyCode = user.getVerifyCode();
-		String code = stringRedisTemplate.opsForValue().get(phoneNum);
-		if(verifyCode != null && verifyCode.equals(code)) {
+//		boolean flag = false;
+		boolean flag = true;//测试代码（验证码一定生效）
+//		String phoneNum = user.getPhoneNum();
+////		String verifyCode = user.getVerifyCode();
+////		String code = stringRedisTemplate.opsForValue().get(phoneNum);
+////		if(verifyCode != null && verifyCode.equals(code)) {
 			mongoTemplate.save(user);
-			flag = true;
-		}
+////			flag = true;
+////		}
 		return flag;
 	}
 
@@ -114,6 +115,7 @@ public class UserServiceImpl implements UserService {
 		//普通单发
 		//String code = "8888";
 		String code =  (int)((Math.random() * 9 + 1) * 1000) + "";
+		System.out.println(code);
 		//调用发送短信功能
 		singleSender.send(0, nationCode, phoneNum, "您的登录验证码为" + code, "", "");
 		//将数据保存到redis中，redis的key手机号，value是验证码，有效时长120秒

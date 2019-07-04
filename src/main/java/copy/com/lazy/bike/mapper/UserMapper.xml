@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lazy.bike.mapper.UserMapper">
+
+	<resultMap type="com.lazy.bike.pojo.User" id="user_result_map">
+		<id property="id" column="uid"/>
+		<result property="account" column="account"/>
+		<result property="password" column="password"/>
+		<result property="name" column="username"/>
+		<result property="gender" column="gender"/>
+		<result property="type" column="type"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	
+	<select id="getById" parameterType="long" resultMap="user_result_map">
+		SELECT * FROM t_user WHERE uid = #{id}
+	</select>
+	
+	<select id="findAll" resultMap="user_result_map">
+		SELECT * FROM t_user
+	</select>
+
+	<insert id="save" parameterType="com.lazy.bike.pojo.User">
+		INSERT INTO t_user (username, gender, type, description) VALUES (#{name}, #{gender}, #{type}, #{description})
+	</insert>
+
+	<delete id="deleteByIds" parameterType="list">
+		DELETE FROM t_user WHERE uid IN 
+		<foreach collection="array" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<update id="update" parameterType="com.lazy.bike.pojo.User">
+		UPDATE t_user SET username = #{name}, gender = #{gender}, type = #{type}, description = #{description} WHERE uid = #{id}
+	</update>
+	
+	<select id="login" parameterType="com.lazy.bike.pojo.User" resultMap="user_result_map">
+		SELECT * FROM t_user WHERE account = #{account} AND password = #{password}
+	</select>
+</mapper>

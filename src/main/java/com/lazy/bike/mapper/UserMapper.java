@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
 
 	public User getById(Long id);
-	
+
 	public List<User> findAll();
 
 	public void save(User user);

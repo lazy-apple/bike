@@ -15,9 +15,30 @@
     </resultMap>
 
 
-    <insert id="save" parameterType="com.lazy.bike.pojo.Bike" >
-		INSERT INTO bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
+    <!--<insert id="save" parameterType="com.lazy.bike.pojo.Bike" >-->
+		<!--INSERT INTO bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})-->
+	<!--</insert>-->
+    <select id="getById" parameterType="long" resultMap="bike_result_map">
+		SELECT * FROM t_bike WHERE id = #{id}
+	</select>
+
+    <select id="findAll" resultMap="bike_result_map">
+		SELECT * FROM t_bike
+	</select>
+
+    <insert id="save" parameterType="com.lazy.bike.pojo.Bike">
+		INSERT INTO t_bike (id, status, latitude, longitude, qrCode) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
 	</insert>
 
+    <delete id="deleteByIds" parameterType="list">
+        DELETE FROM t_bike WHERE id IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="com.lazy.bike.pojo.Bike">
+		UPDATE t_bike SET status = #{status}, latitude = #{latitude}, longitude = #{longitude} WHERE id = #{id}
+	</update>
 
 </mapper>

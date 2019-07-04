@@ -10,11 +10,22 @@ import java.util.List;
  * @create 2019-03-24 21:35
  */
 public interface BikeServce {
+    Bike getById(Long id);
 
     List<Bike> findAll();
 
     void save(Bike bike);
 
+    void deleteByIds(Long[] ids);
+
+    void update(Bike Bike);
+
     GeoResults<Bike> findNear(double longitude, double latitude);
+
+//    List<Bike> findAll();
+////
+////    void save(Bike bike);
+////
+////    GeoResults<Bike> findNear(double longitude, double latitude);
 }
 

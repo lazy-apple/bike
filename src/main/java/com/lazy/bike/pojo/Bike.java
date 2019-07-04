@@ -16,10 +16,11 @@ public class Bike {
 
     private int status;
 
-    private String qrCode;
+    private String qrCode;//二维码
 
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private double[] location;
+
 //    private Double latitude;
 //
 //    private Double longitude;
