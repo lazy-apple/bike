@@ -1,6 +1,6 @@
 package kafka;
 
-/**
+/**单词统计模板
  * @author LaZY(李志一)
  * @create 2019-07-05 11:51
  */

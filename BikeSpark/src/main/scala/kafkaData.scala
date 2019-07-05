@@ -1,5 +1,3 @@
-package kafka
-
 import com.google.gson.Gson
 import org.apache.spark._
 import org.apache.spark.streaming._
@@ -11,7 +9,7 @@ import org.apache.spark.streaming.kafka010._
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 
-/**
+/**显示集成kafka产生的数据
   * @author LaZY(李志一) 
   * @create 2019-07-05 12:40 
   */
@@ -27,7 +25,7 @@ object KafkaSteaming {
       "bootstrap.servers" -> "s202:9092,s203:9092,s204:9092",
       "key.deserializer" -> classOf[StringDeserializer],
       "value.deserializer" -> classOf[StringDeserializer],
-      "group.id" -> "group_21_41",
+      "group.id" -> "group_16_59",
       "auto.offset.reset" -> "earliest",
       "enable.auto.commit" -> (false: java.lang.Boolean)
     )
@@ -44,17 +42,14 @@ object KafkaSteaming {
     stream.map(record => handleMessage2CaseClass(record.value())).foreachRDD(rdd => {
       val spark = SparkSession.builder().config(rdd.sparkContext.getConf).getOrCreate()
       val df = spark.createDataFrame(rdd)
-      df.write.format("csv").mode("overwrite").save("hdfs://s206/user/hive/warehouse/mobike.db/logs/year=2019/month=1/day=1/hour=1/minute=1")
       df.show()
 
     })
-
 
     def handleMessage2CaseClass(jsonStr: String): KafkaMessage = {
       val gson = new Gson()
       gson.fromJson(jsonStr, classOf[KafkaMessage])
     }
-
 
     streamingContext.start()
     streamingContext.awaitTermination()
