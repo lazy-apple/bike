@@ -26,13 +26,13 @@ object Test {
     val r = res.collect()
     r.foreach(println)
 
-    val df = sc.read.json("hdfs://localhost:9000/testdata/person.json")
-    df.show() //打印数据
-    df.printSchema() // 打印元数据
-    df.select($"name", $"age" + 1).show() // 使用表达式，scala的语法，要用$符号作为前缀
-    df.select("name").show() // select操作，典型的弱类型，untyped操作
-    df.createOrReplaceTempView("person") // 基于dataframe创建临时视图
-    spark.sql("SELECT * FROM person").show() // 用SparkSession的sql()函数就可以执行sql语句，默认是针对创建的临时视图
+//    val df = sc.read.json("hdfs://localhost:9000/testdata/person.json")
+//    df.show() //打印数据
+//    df.printSchema() // 打印元数据
+//    df.select($"name", $"age" + 1).show() // 使用表达式，scala的语法，要用$符号作为前缀
+//    df.select("name").show() // select操作，典型的弱类型，untyped操作
+//    df.createOrReplaceTempView("person") // 基于dataframe创建临时视图
+//    spark.sql("SELECT * FROM person").show() // 用SparkSession的sql()函数就可以执行sql语句，默认是针对创建的临时视图
   }
 
 }
