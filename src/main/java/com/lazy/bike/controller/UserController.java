@@ -95,7 +95,13 @@ public class UserController {
         return flag;
     }
 
-
+    @PostMapping("/test")
+    @ResponseBody
+    public boolean test(@RequestBody String params) {
+        boolean flag = true;
+        System.out.println(params);
+        return flag;
+    }
     @RequestMapping("/welcome")
     public String welcome() {
         return "user/welcome";

@@ -1,5 +1,7 @@
 package kafka
 
+import java.util.{Calendar, Date}
+
 import com.google.gson.Gson
 import org.apache.spark._
 import org.apache.spark.streaming._
@@ -21,13 +23,13 @@ object KafkaSteaming {
       .setAppName("KafkaSteaming")
       .setMaster("local[4]")
 
-    val streamingContext = new StreamingContext(conf, Seconds(10))
+    val streamingContext = new StreamingContext(conf, Seconds(5))
 
     val kafkaParams = Map[String, Object](
       "bootstrap.servers" -> "s202:9092,s203:9092,s204:9092",
       "key.deserializer" -> classOf[StringDeserializer],
       "value.deserializer" -> classOf[StringDeserializer],
-      "group.id" -> "group_21_41",
+      "group.id" -> "group_15_10",
       "auto.offset.reset" -> "earliest",
       "enable.auto.commit" -> (false: java.lang.Boolean)
     )
@@ -40,11 +42,23 @@ object KafkaSteaming {
       Subscribe[String, String](topics, kafkaParams)
     )
 
+
+
 //   ==================下面处理json=============================
     stream.map(record => handleMessage2CaseClass(record.value())).foreachRDD(rdd => {
+      val date = new Date();
+
+      var y = MyDate.getYear(date);
+      var m = MyDate.getMonth(date);
+      var d = MyDate.getDay(date);
+      var h = MyDate.getHour(date)
+      var mi = MyDate.getMinute(date);
+      var s = MyDate.getSecond(date);
+      var da = "year="+y+"/month="+m+"/day="+d+"/hour="+h+"/minute="+mi+"/second="+s
+      print(da)
       val spark = SparkSession.builder().config(rdd.sparkContext.getConf).getOrCreate()
       val df = spark.createDataFrame(rdd)
-      df.write.format("csv").mode("overwrite").save("hdfs://s206/user/hive/warehouse/mobike.db/logs/year=2019/month=1/day=1/hour=1/minute=1")
+      df.write.format("csv").mode("overwrite").save("hdfs://s201/user/hive/warehouse/mobike.db/logs/"+da)
       df.show()
 
     })
@@ -62,4 +76,4 @@ object KafkaSteaming {
 
 
 }
-case class KafkaMessage(phoneNum: String, amount: String, date: String, lat: String, log: String, province: String, city: String, district: String)
+case class KafkaMessage(phoneNum: String, amount: String, date: String, lat: String, log: String, province: String, city: String, district: String, model: String,language:String)
