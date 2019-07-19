@@ -6,7 +6,6 @@
 # 小程序首页
 
 ![Image](https://github.com/lazy-apple/bike/blob/master/images/111.png)
-
 ![Image](https://github.com/lazy-apple/bike/blob/master/images/222.png)
 
 # 用户注册
