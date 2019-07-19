@@ -17,6 +17,26 @@
 ![Image](https://github.com/lazy-apple/bike/blob/master/images/add.png)
 ![Image](https://github.com/lazy-apple/bike/blob/master/images/充值.png)
 
+# 技术架构：
+1.	Hadoop HA集群 + Zookeeper 进行集群配置、管理
+2.	Kafka集群 + Flume + Hive 进行数据采集、存储
+3.	SparkStreaming + SparkSQL 进行数据清洗、分析
+4.	Nginx负载均衡、反向代理服务器
+5.	MySQL集群 + MongoDB集群 + Redis集群
+6.	SpringBoot+微信小程序
+
+# 项目描述：
+1.	用户可以查看周围单车，并通过扫码进行使用。
+2.	首次使用的用户需要注册并绑定相关信息。
+3.	用户还可以选择账户充值、单车报修、参加广告活动相关业务。
+4.	通过记录的日志对用户以及城市对共享单车的使用进行分析。
+5.	通过后台管理页面查看当前存储的数据和最终如下统计结果：
+a)	每日、不同地区、不同终端设备用户访问量。
+b)	不同地区、不同终端设备用户单车使用情况
+c)	不同地区单车损坏情况
+d)	不同地区用户对广告活动的点击量
+e)	每日、不同地区、不同终端充值情况
+f)	……
 
 
 # 详细流程：
